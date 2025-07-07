@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Finger Beat - Ultimate rhythm game with procedural audio generation">
+    <meta name="keywords" content="rhythm game, music game, finger beat, mobile game">
+    <meta name="author" content="Your Studio Name">
+    <title>Finger Beat - Ultimate Edition</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-screen-content">
+            <div class="loading-logo">FINGER BEAT</div>
+            <div class="loading-spinner"></div>
+            <div style="margin-top: 20px; font-size: 14px; opacity: 0.7;">Ultimate Edition v2.0</div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading-indicator" id="loadingIndicator">
+        <div class="loading-spinner"></div>
+        <div class="loading-text" id="loadingText">Loading...</div>
+    </div>
+
+    <!-- Dynamic Background -->
+    <div class="dynamic-background">
+        <div class="bg-layer bg-viral active" id="bgViral"></div>
+        <div class="bg-layer bg-hype" id="bgHype"></div>
+        <div class="bg-layer bg-chill" id="bgChill"></div>
+        <div class="bg-layer bg-neon" id="bgNeon"></div>
+        <div class="bg-layer bg-sunset" id="bgSunset"></div>
+        <div class="bg-layer bg-custom" id="bgCustom"></div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div class="game-container">
+        <!-- Header -->
+        <div class="game-header">
+            <div class="combo-display">
+                <div class="combo-label">COMBO</div>
+                <div class="combo-value" id="comboValue">x0</div>
+                <div class="combo-bar">
+                    <div class="combo-fill" id="comboFill"></div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-label">LEVEL</div>
+                    <div class="stat-value" id="levelValue">1</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">ACCURACY</div>
+                    <div class="stat-value" id="accuracyValue">100%</div>
+                </div>
+            </div>
+            
+            <div class="score-display">
+                <div class="score-label">SCORE</div>
+                <div class="score-value" id="scoreValue">0</div>
+            </div>
+            
+            <div class="lives-display">
+                <div class="lives-label">LIVES</div>
+                <div class="life-dot" id="life1"></div>
+                <div class="life-dot" id="life2"></div>
+                <div class="life-dot" id="life3"></div>
+            </div>
+        </div>
+
+        <!-- Side Buttons -->
+        <div class="side-buttons">
+            <button class="side-button" id="musicToggleBtn" title="Music & Audio">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+            </button>
+            
+            <button class="side-button" id="settingsBtn" title="Settings">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                </svg>
+            </button>
+            
+            <button class="side-button" id="statsBtn" title="Statistics">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16,11V3H8v6H2v12h20V11H16z M10,5h4v14h-4V5z M4,11h4v8H4V11z M20,19h-4v-6h4V19z"/>
+                </svg>
+            </button>
+            
+            <button class="side-button" id="pauseBtn" style="display: none;" title="Pause Game">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Game Zone -->
+        <div class="game-zone">
+            <div class="target-container" id="targetContainer" style="display: none;">
+                <!-- Timer Ring -->
+                <div class="timer-ring">
+                    <svg class="timer-svg" viewBox="0 0 300 300">
+                        <defs>
+                            <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--primary-color)"/>
+                                <stop offset="50%" style="stop-color:var(--secondary-color)"/>
+                                <stop offset="100%" style="stop-color:var(--accent-color)"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="timer-circle-bg" cx="150" cy="150" r="140"/>
+                        <circle class="timer-circle" id="timerCircle" cx="150" cy="150" r="140"/>
+                    </svg>
+                </div>
+                
+                <div class="target-ring"></div>
+                <div class="target-inner">
+                    <div class="target-number" id="targetNumber">3</div>
+                    <div class="target-indicator" id="targetIndicator">
+                        <div class="indicator-dot"></div>
+                        <div class="indicator-dot"></div>
+                        <div class="indicator-dot"></div>
+                        <div class="indicator-dot"></div>
+                        <div class="indicator-dot"></div>
+                    </div>
+                </div>
+                
+                <!-- Beat Indicator -->
+                <div class="beat-indicator">
+                    <div class="beat-dot" id="beat1"></div>
+                    <div class="beat-dot" id="beat2"></div>
+                    <div class="beat-dot" id="beat3"></div>
+                    <div class="beat-dot" id="beat4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="controls-section">
+            <div class="controls-container" id="controlsContainer" style="display: none;">
+                <button class="input-button" data-number="1">1</button>
+                <button class="input-button" data-number="2">2</button>
+                <button class="input-button" data-number="3">3</button>
+                <button class="input-button" data-number="4">4</button>
+                <button class="input-button" data-number="5">5</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Panel -->
+    <div class="music-panel" id="musicPanel">
+        <div class="panel-content">
+            <div class="music-panel-title">Choose Your Track</div>
+            
+            <!-- Featured Tracks -->
+            <div class="music-section">
+                <div class="section-title">Featured Tracks</div>
+                <div class="music-option" data-track="arcade">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🎹 Love is Gone - SLANDER
+                </div>
+                <div class="music-option" data-track="losing_game">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🎸 A Losing Game - Duncan Laurence
+                </div>
+                <div class="music-option" data-track="jujutsu">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    ⚡ Jujutsu Kaisen OP3
+                </div>
+                <div class="music-option" data-track="dandadan">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🔥 DAN DA DAN Opening
+                </div>
+                <div class="music-option" data-track="crazy">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🎵 Crazy - Electronic Pop
+                </div>
+            </div>
+            
+            <!-- Generated Audio -->
+            <div class="music-section">
+                <div class="section-title">Generated Audio</div>
+                <div class="music-option" data-genre="viral">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🔥 Viral Phonk
+                </div>
+                <div class="music-option" data-genre="hype">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    ⚡ EDM Hype
+                </div>
+                <div class="music-option" data-genre="chill">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                    </svg>
+                    🌙 Chill Trap
+                </div>
+            </div>
+            
+            <!-- Custom Upload -->
+            <div class="music-section">
+                <div class="section-title">Custom</div>
+                <div class="music-option" data-genre="custom">
+                    <svg class="music-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                    </svg>
+                    Upload Your Music
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="panel-content">
+            <div class="settings-title">Game Settings</div>
+            
+            <!-- Audio Settings -->
+            <div class="settings-section">
+                <div class="settings-section-title">Audio</div>
+                <div class="setting-item">
+                    <span>Music Volume</span>
+                    <div class="setting-slider" id="musicVolumeSlider">
+                        <div class="setting-slider-fill" style="width: 70%"></div>
+                        <div class="setting-slider-thumb" style="left: 70%"></div>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <span>Sound Effects</span>
+                    <div class="setting-toggle active" id="sfxToggle"></div>
+                </div>
+                <div class="setting-item">
+                    <span>Metronome</span>
+                    <div class="setting-toggle active" id="metronomeToggle"></div>
+                </div>
+            </div>
+            
+            <!-- Visual Settings -->
+            <div class="settings-section">
+                <div class="settings-section-title">Visual</div>
+                <div class="setting-item">
+                    <span>Visual Theme</span>
+                </div>
+                <div class="theme-selector">
+                    <div class="theme-option viral active" data-theme="viral" title="Viral"></div>
+                    <div class="theme-option hype" data-theme="hype" title="Hype"></div>
+                    <div class="theme-option chill" data-theme="chill" title="Chill"></div>
+                    <div class="theme-option neon" data-theme="neon" title="Neon"></div>
+                    <div class="theme-option sunset" data-theme="sunset" title="Sunset"></div>
+                    <div class="theme-option custom" data-theme="custom" title="Custom"></div>
+                </div>
+                <div class="setting-item">
+                    <span>Particles</span>
+                    <div class="setting-toggle active" id="particlesToggle"></div>
+                </div>
+                <div class="setting-item">
+                    <span>Screen Shake</span>
+                    <div class="setting-toggle active" id="screenShakeToggle"></div>
+                </div>
+            </div>
+            
+            <!-- Gameplay Settings -->
+            <div class="settings-section">
+                <div class="settings-section-title">Gameplay</div>
+                <div class="setting-item">
+                    <span>Difficulty</span>
+                    <select class="setting-select" id="difficultySelect">
+                        <option value="easy">Easy</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Hard</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <span>Auto-Save</span>
+                    <div class="setting-toggle active" id="autoSaveToggle"></div>
+                </div>
+                <div class="setting-item">
+                    <span>Vibration</span>
+                    <div class="setting-toggle active" id="vibrationToggle"></div>
+                </div>
+            </div>
+            
+            <!-- Data Management -->
+            <div class="settings-section">
+                <div class="settings-section-title">Data</div>
+                <button class="menu-button" onclick="exportGameData()">Export Data</button>
+                <button class="menu-button" onclick="importGameData()">Import Data</button>
+                <button class="menu-button" onclick="resetGameData()" style="color: var(--accent-color);">Reset All Data</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Panel -->
+    <div class="stats-panel" id="statsPanel">
+        <div class="panel-content">
+            <div class="music-panel-title">Game Statistics</div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-value" id="totalScoreDisplay">0</div>
+                    <div class="stat-card-label">Total Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-value" id="gamesPlayedDisplay">0</div>
+                    <div class="stat-card-label">Games Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-value" id="bestComboDisplay">0</div>
+                    <div class="stat-card-label">Best Combo</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-value" id="totalTimeDisplay">0m</div>
+                    <div class="stat-card-label">Time Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-value" id="accuracyDisplay">100%</div>
+                    <div class="stat-card-label">Avg Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-value" id="perfectGamesDisplay">0</div>
+                    <div class="stat-card-label">Perfect Games</div>
+                </div>
+            </div>
+            
+            <!-- Leaderboard -->
+            <div class="leaderboard">
+                <div class="leaderboard-title">🏆 High Scores</div>
+                <div id="leaderboardList">
+                    <div class="leaderboard-entry">
+                        <span class="leaderboard-rank">#1</span>
+                        <span>-</span>
+                        <span class="leaderboard-score">0</span>
+                    </div>
+                    <div class="leaderboard-entry">
+                        <span class="leaderboard-rank">#2</span>
+                        <span>-</span>
+                        <span class="leaderboard-score">0</span>
+                    </div>
+                    <div class="leaderboard-entry">
+                        <span class="leaderboard-rank">#3</span>
+                        <span>-</span>
+                        <span class="leaderboard-score">0</span>
+                    </div>
+                    <div class="leaderboard-entry">
+                        <span class="leaderboard-rank">#4</span>
+                        <span>-</span>
+                        <span class="leaderboard-score">0</span>
+                    </div>
+                    <div class="leaderboard-entry">
+                        <span class="leaderboard-rank">#5</span>
+                        <span>-</span>
+                        <span class="leaderboard-score">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="achievements">
+                <div class="leaderboard-title">🏅 Achievements</div>
+                <div class="achievement-item">
+                    <div class="achievement-icon unlocked">🎯</div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">First Steps</div>
+                        <div class="achievement-desc">Complete your first level</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon" id="combo10Icon">🔥</div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Combo Master</div>
+                        <div class="achievement-desc">Reach a 10x combo</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon" id="level5Icon">⭐</div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Level Champion</div>
+                        <div class="achievement-desc">Reach level 5</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon" id="perfectIcon">💎</div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Perfectionist</div>
+                        <div class="achievement-desc">Complete a level with 100% accuracy</div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon" id="scoreIcon">👑</div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Score Legend</div>
+                        <div class="achievement-desc">Score over 10,000 points</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div class="overlay" id="tutorialOverlay" style="display: flex;">
+        <div class="overlay-card">
+            <!-- NOUVEAU: Logo Couronne Animée -->
+            <div class="game-logo-container">
+                <svg class="crown-logo" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700"/>
+                            <stop offset="50%" style="stop-color:#FFA500"/>
+                            <stop offset="100%" style="stop-color:#FF8C00"/>
+                        </linearGradient>
+                        
+                        <linearGradient id="gemGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ff88"/>
+                            <stop offset="50%" style="stop-color:#00ffff"/>
+                            <stop offset="100%" style="stop-color:#8b00ff"/>
+                        </linearGradient>
+                        
+                        <filter id="crownGlow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        
+                        <!-- Chemins pour les particules flottantes -->
+                        <path id="floatPath1" d="M30,50 Q50,30 70,50 T110,50"/>
+                        <path id="floatPath2" d="M170,70 Q150,50 130,70 T90,70"/>
+                        <path id="floatPath3" d="M100,30 Q120,10 140,30 T180,30"/>
+                    </defs>
+                    
+                    <!-- Base de la couronne -->
+                    <path d="M20 120 L40 80 L60 100 L100 60 L140 100 L160 80 L180 120 Z" 
+                        fill="url(#crownGradient)" 
+                        stroke="#FFD700" 
+                        stroke-width="2"
+                        filter="url(#crownGlow)">
+                        <animate attributeName="d" 
+                                values="M20 120 L40 80 L60 100 L100 60 L140 100 L160 80 L180 120 Z;
+                                        M20 120 L40 75 L60 95 L100 55 L140 95 L160 75 L180 120 Z;
+                                        M20 120 L40 80 L60 100 L100 60 L140 100 L160 80 L180 120 Z" 
+                                dur="3s" 
+                                repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Pointes de la couronne -->
+                    <polygon points="40,80 50,40 60,80" fill="url(#crownGradient)" filter="url(#crownGlow)">
+                        <animateTransform attributeName="transform" 
+                                        type="scale" 
+                                        values="1;1.1;1" 
+                                        dur="2s" 
+                                        repeatCount="indefinite"/>
+                    </polygon>
+                    
+                    <polygon points="90,60 100,20 110,60" fill="url(#crownGradient)" filter="url(#crownGlow)">
+                        <animateTransform attributeName="transform" 
+                                        type="scale" 
+                                        values="1;1.2;1" 
+                                        dur="2.5s" 
+                                        repeatCount="indefinite"/>
+                    </polygon>
+                    
+                    <polygon points="140,80 150,40 160,80" fill="url(#crownGradient)" filter="url(#crownGlow)">
+                        <animateTransform attributeName="transform" 
+                                        type="scale" 
+                                        values="1;1.1;1" 
+                                        dur="2s" 
+                                        repeatCount="indefinite"/>
+                    </polygon>
+                    
+                    <!-- Gemmes brillantes avec effet de scintillement -->
+                    <circle cx="50" cy="60" r="6" fill="url(#gemGradient)">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+                        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <circle cx="100" cy="40" r="8" fill="url(#gemGradient)">
+                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.8s" repeatCount="indefinite"/>
+                        <animate attributeName="r" values="8;10;8" dur="1.8s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <circle cx="150" cy="60" r="6" fill="url(#gemGradient)">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+                        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Particules flottantes magiques -->
+                    <g class="floating-particles">
+                        <circle cx="30" cy="50" r="2" fill="#FFD700" opacity="0.6">
+                            <animateMotion dur="4s" repeatCount="indefinite">
+                                <mpath href="#floatPath1"/>
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <circle cx="170" cy="70" r="1.5" fill="#00ff88" opacity="0.8">
+                            <animateMotion dur="5s" repeatCount="indefinite">
+                                <mpath href="#floatPath2"/>
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <circle cx="100" cy="30" r="1" fill="#00ffff" opacity="0.7">
+                            <animateMotion dur="6s" repeatCount="indefinite">
+                                <mpath href="#floatPath3"/>
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.2;0.9;0.2" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                    </g>
+                    
+                    <!-- Effet de rayonnement -->
+                    <g class="crown-rays" opacity="0.3">
+                        <line x1="100" y1="20" x2="100" y2="5" stroke="#FFD700" stroke-width="2">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="85" y1="25" x2="80" y2="12" stroke="#FFD700" stroke-width="1.5">
+                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="115" y1="25" x2="120" y2="12" stroke="#FFD700" stroke-width="1.5">
+                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.2s" repeatCount="indefinite"/>
+                        </line>
+                    </g>
+                </svg>
+            </div>
+            
+            <h2 class="overlay-title">FINGER BEAT</h2>
+            <p class="overlay-subtitle">👑 ULTIMATE EDITION 👑</p>
+            <p class="overlay-text">
+                Match the number shown on screen by tapping the correct button.
+                Stay in sync with the music for maximum points!
+            </p>
+            <div class="music-note" style="background: var(--glass-background); border: 1px solid var(--glass-border); border-radius: 12px; padding: 15px; margin: 20px 0; font-size: 13px; opacity: 0.7;">
+                <strong>🎵 Pro Tips:</strong>
+                <ul style="margin: 10px 0 0 20px; font-size: 12px; line-height: 1.6;">
+                    <li>Listen to the beat for perfect timing</li>
+                    <li>Build combos for higher scores</li>
+                    <li>Use custom music for personalized experience</li>
+                    <li>Adjust settings to match your playstyle</li>
+                </ul>
+            </div>
+            <button class="menu-button primary" onclick="startGame()">START PLAYING</button>
+            <button class="menu-button" onclick="showTutorial()">HOW TO PLAY</button>
+        </div>
+    </div>
+
+    <!-- How to Play Overlay -->
+    <div class="overlay" id="howToPlayOverlay">
+        <div class="overlay-card">
+            <h2 class="overlay-title">HOW TO PLAY</h2>
+            <div class="overlay-text" style="text-align: left; font-size: 14px; line-height: 1.8;">
+                <p><strong>🎯 Objective:</strong> Match the target number by pressing the correct button</p>
+                <p><strong>⏱️ Timing:</strong> Press buttons in sync with the beat for bonus points</p>
+                <p><strong>🔥 Combos:</strong> Hit consecutive targets to build your combo multiplier</p>
+                <p><strong>❤️ Lives:</strong> You lose a life for each mistake - game over at 0 lives</p>
+                <p><strong>📈 Scoring:</strong> 
+                    <br>• Base: 100 points per hit
+                    <br>• Combo bonus: up to +500 points
+                    <br>• Speed bonus: up to +50 points
+                    <br>• Level bonus: +20 per level
+                </p>
+                <p><strong>🎵 Music:</strong> Choose from featured tracks, generated audio, or upload your own!</p>
+            </div>
+            <button class="menu-button primary" onclick="hideHowToPlay()">GOT IT!</button>
+        </div>
+    </div>
+
+    <!-- Pause Overlay -->
+    <div class="overlay" id="pauseOverlay">
+        <div class="overlay-card">
+            <h2 class="overlay-title">PAUSED</h2>
+            <button class="menu-button primary" onclick="resumeGame()">RESUME</button>
+            <button class="menu-button" onclick="restartGame()">RESTART</button>
+            <button class="menu-button" onclick="quitToMenu()">MAIN MENU</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div class="overlay" id="gameOverOverlay">
+        <div class="overlay-card">
+            <h2 class="overlay-title">GAME OVER</h2>
+            <div class="overlay-text">
+                <div style="font-size: 48px; font-weight: 900; margin: 20px 0; color: var(--primary-color);" id="finalScore">0</div>
+                <div style="margin: 10px 0;">Level Reached: <span style="font-weight: 700;" id="finalLevel">1</span></div>
+                <div style="margin: 10px 0;">Best Combo: <span style="font-weight: 700;" id="finalCombo">0</span></div>
+                <div style="margin: 10px 0;">Accuracy: <span style="font-weight: 700;" id="finalAccuracy">100%</span></div>
+                <div style="margin: 10px 0;" id="newRecordText"></div>
+            </div>
+            <button class="menu-button primary" onclick="restartGame()">PLAY AGAIN</button>
+            <button class="menu-button" onclick="shareScore()">SHARE SCORE</button>
+            <button class="menu-button" onclick="quitToMenu()">MAIN MENU</button>
+        </div>
+    </div>
+
+    <!-- Hidden file inputs -->
+    <input type="file" id="audioFile" accept="audio/*">
+    <input type="file" id="dataImportFile" accept=".json">
+
+    <script src="script.js"></script>
+</body>
+</html>

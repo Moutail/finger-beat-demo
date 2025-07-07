@@ -1,0 +1,26 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="88" fill="#000000" stroke="#00ff88" stroke-width="8"/>
+  
+  <!-- Inner gradient ring -->
+  <defs>
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88" />
+      <stop offset="50%" style="stop-color:#00ffff" />
+      <stop offset="100%" style="stop-color:#ff006e" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ring -->
+  <circle cx="96" cy="96" r="70" fill="none" stroke="url(#ringGradient)" stroke-width="4" opacity="0.8"/>
+  
+  <!-- Center number -->
+  <text x="96" y="115" font-family="Arial, sans-serif" font-size="72" font-weight="900" text-anchor="middle" fill="#ffffff">5</text>
+  
+  <!-- Small dots -->
+  <circle cx="96" cy="40" r="4" fill="#00ff88"/>
+  <circle cx="132" cy="60" r="4" fill="#00ffff"/>
+  <circle cx="132" cy="132" r="4" fill="#ff006e"/>
+  <circle cx="60" cy="132" r="4" fill="#ffff00"/>
+  <circle cx="60" cy="60" r="4" fill="#8b00ff"/>
+</svg>
