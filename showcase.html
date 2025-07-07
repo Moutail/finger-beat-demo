@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            font-family: Arial, sans-serif;
+        }
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 400px);
+            grid-template-rows: repeat(2, 250px);
+            gap: 10px;
+            justify-content: center;
+        }
+        .theme-preview {
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .theme-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        /* Styles pour chaque thème */
+        .viral {
+            background: linear-gradient(135deg, #ff006e 0%, #8b00ff 50%, #ff006e 100%);
+            background-size: 200% 200%;
+            animation: viralMove 3s ease infinite;
+        }
+        
+        .hype {
+            background: radial-gradient(circle at 20% 50%, #00ffff 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, #ff006e 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, #000033 0%, #000011 100%);
+        }
+        
+        .chill {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .neon {
+            background: linear-gradient(45deg, #ff00ff 0%, #00ffff 25%, #ffff00 50%, #ff00ff 75%, #00ffff 100%);
+            background-size: 400% 400%;
+            animation: neonShift 4s ease infinite;
+        }
+        
+        .sunset {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 50%, #ff1493 100%);
+        }
+        
+        .void {
+            background: linear-gradient(135deg, #000000 0%, #00ff88 50%, #000000 100%);
+            border: 2px solid #00ff88;
+        }
+        
+        @keyframes viralMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes neonShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Éléments de jeu simulés */
+        .game-elements {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .target-circle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .target-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        
+        .score-display {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-grid">
+        <!-- Viral Theme -->
+        <div class="theme-preview viral">
+            <div class="theme-label">VIRAL</div>
+            <div class="game-elements">
+                <div class="target-circle">
+                    <div class="target-number">3</div>
+                </div>
+                <div class="score-display">SCORE: 2,450</div>
+            </div>
+        </div>
+        
+        <!-- Hype Theme -->
+        <div class="theme-preview hype">
+            <div class="theme-label">HYPE</div>
+            <div class="game-elements">
+                <div class="target-circle">
+                    <div class="target-number">1</div>
+                </div>
+                <div class="score-display">SCORE: 1,890</div>
+            </div>
+        </div>
+        
+        <!-- Chill Theme -->
+        <div class="theme-preview chill">
+            <div class="theme-label">CHILL</div>
+            <div class="game-elements">
+                <div class="target-circle">
+                    <div class="target-number">5</div>
+                </div>
+                <div class="score-display">SCORE: 3,120</div>
+            </div>
+        </div>
+        
+        <!-- Neon Theme -->
+        <div class="theme-preview neon">
+            <div class="theme-label">NEON</div>
+            <div class="game-elements">
+                <div class="target-circle">
+                    <div class="target-number">2</div>
+                </div>
+                <div class="score-display">SCORE: 4,670</div>
+            </div>
+        </div>
+        
+        <!-- Sunset Theme -->
+        <div class="theme-preview sunset">
+            <div class="theme-label">SUNSET</div>
+            <div class="game-elements">
+                <div class="target-circle">
+                    <div class="target-number">4</div>
+                </div>
+                <div class="score-display">SCORE: 5,230</div>
+            </div>
+        </div>
+        
+        <!-- VOID Theme -->
+        <div class="theme-preview void">
+            <div class="theme-label" style="color: #00ff88;">VOID</div>
+            <div class="game-elements">
+                <div class="target-circle" style="border-color: #00ff88;">
+                    <div class="target-number" style="color: #00ff88;">V</div>
+                </div>
+                <div class="score-display" style="color: #00ff88;">SCORE: 9,999</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

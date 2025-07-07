@@ -1,0 +1,193 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000"/>
+      <stop offset="50%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+    
+    <linearGradient id="voidGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88"/>
+      <stop offset="50%" style="stop-color:#00ffff"/>
+      <stop offset="100%" style="stop-color:#ffffff"/>
+    </linearGradient>
+    
+    <linearGradient id="gameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff006e"/>
+      <stop offset="50%" style="stop-color:#8b00ff"/>
+      <stop offset="100%" style="stop-color:#00ff88"/>
+    </linearGradient>
+    
+    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="softGlow"/>
+      <feMerge>
+        <feMergeNode in="softGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#backgroundGradient)"/>
+  
+  <!-- Glow effect overlay -->
+  <ellipse cx="600" cy="315" rx="400" ry="200" fill="url(#glowEffect)"/>
+  
+  <!-- Game preview mockup on the right -->
+  <g transform="translate(700, 80)">
+    <!-- Phone mockup frame -->
+    <rect x="0" y="0" width="320" height="470" rx="25" ry="25" fill="#222222" stroke="url(#voidGradient)" stroke-width="2"/>
+    <rect x="10" y="10" width="300" height="450" rx="20" ry="20" fill="url(#gameGradient)"/>
+    
+    <!-- Game elements inside phone -->
+    <!-- Header -->
+    <rect x="15" y="15" width="290" height="40" fill="rgba(0,0,0,0.7)" rx="10"/>
+    <text x="30" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00ff88">FINGER BEAT</text>
+    <text x="250" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">SCORE: 9,999</text>
+    
+    <!-- Target circle -->
+    <circle cx="160" cy="240" r="80" fill="rgba(0,0,0,0.5)" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="160" cy="240" r="70" fill="none" stroke="url(#voidGradient)" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Target number -->
+    <text x="160" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#ffffff" filter="url(#textGlow)">3</text>
+    
+    <!-- Control buttons -->
+    <g transform="translate(50, 350)">
+      <rect x="0" y="0" width="40" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      <text x="20" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">1</text>
+      
+      <rect x="50" y="0" width="40" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">2</text>
+      
+      <rect x="100" y="0" width="40" height="40" rx="8" fill="url(#voidGradient)" stroke="#00ff88" stroke-width="2"/>
+      <text x="120" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000000">3</text>
+      
+      <rect x="150" y="0" width="40" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      <text x="170" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">4</text>
+      
+      <rect x="200" y="0" width="40" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      <text x="220" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">5</text>
+    </g>
+    
+    <!-- Particles effect -->
+    <circle cx="100" cy="180" r="2" fill="#00ff88" opacity="0.8">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="200" r="2" fill="#00ffff" opacity="0.6">
+      <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130" cy="320" r="2" fill="#ffffff" opacity="0.7">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Left side content -->
+  <g transform="translate(50, 80)">
+    <!-- VOID Studio Logo -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="80" height="80" fill="#000000" rx="8" stroke="url(#voidGradient)" stroke-width="2"/>
+      <text x="40" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="900" fill="url(#voidGradient)" letter-spacing="2px">VOID</text>
+      <text x="40" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="300" fill="#ffffff" opacity="0.8" letter-spacing="1px">STUDIO</text>
+    </g>
+    
+    <!-- Main Title -->
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="url(#voidGradient)" filter="url(#textGlow)">FINGER BEAT</text>
+    <text x="0" y="180" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#ffffff" filter="url(#textGlow)">ULTIMATE</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#cccccc">Professional HTML5 Rhythm Game Template</text>
+    <text x="0" y="245" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#888888">with Procedural Audio Generation</text>
+    
+    <!-- Features badges -->
+    <g transform="translate(0, 280)">
+      <!-- PWA Ready -->
+      <rect x="0" y="0" width="90" height="30" rx="15" fill="rgba(0,255,136,0.2)" stroke="rgba(0,255,136,0.5)" stroke-width="1"/>
+      <text x="45" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#00ff88">PWA READY</text>
+      
+      <!-- Mobile First -->
+      <rect x="100" y="0" width="100" height="30" rx="15" fill="rgba(0,255,255,0.2)" stroke="rgba(0,255,255,0.5)" stroke-width="1"/>
+      <text x="150" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#00ffff">MOBILE FIRST</text>
+      
+      <!-- 60 FPS -->
+      <rect x="210" y="0" width="70" height="30" rx="15" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+      <text x="245" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ffffff">60 FPS</text>
+    </g>
+    
+    <!-- Stats -->
+    <g transform="translate(0, 330)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#00ff88">2000+</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#888888">Lines of Code</text>
+      
+      <text x="120" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#00ffff">6</text>
+      <text x="120" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#888888">Themes Included</text>
+      
+      <text x="200" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff">MIT</text>
+      <text x="200" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#888888">License</text>
+    </g>
+    
+    <!-- Price -->
+    <g transform="translate(0, 390)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#00ff88">$299</text>
+      <text x="100" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#cccccc">Complete Template</text>
+      <text x="0" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#888888">One-time purchase • Commercial License • 30-day Support</text>
+    </g>
+    
+    <!-- CTA -->
+    <g transform="translate(0, 440)">
+      <rect x="0" y="0" width="200" height="45" rx="22" fill="url(#voidGradient)"/>
+      <text x="100" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#000000">TRY DEMO NOW</text>
+    </g>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <!-- Tech grid lines -->
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="url(#voidGradient)" stroke-width="1" opacity="0.2"/>
+    <line x1="0" y1="530" x2="1200" y2="530" stroke="url(#voidGradient)" stroke-width="1" opacity="0.2"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="url(#voidGradient)" stroke-width="1" opacity="0.1"/>
+    
+    <!-- Corner elements -->
+    <path d="M 20 20 L 50 20 L 50 22 L 22 22 L 22 50 L 20 50 Z" fill="url(#voidGradient)" opacity="0.6"/>
+    <path d="M 1180 20 L 1150 20 L 1150 22 L 1178 22 L 1178 50 L 1180 50 Z" fill="url(#voidGradient)" opacity="0.6"/>
+    <path d="M 20 610 L 50 610 L 50 608 L 22 608 L 22 580 L 20 580 Z" fill="url(#voidGradient)" opacity="0.6"/>
+    <path d="M 1180 610 L 1150 610 L 1150 608 L 1178 608 L 1178 580 L 1180 580 Z" fill="url(#voidGradient)" opacity="0.6"/>
+  </g>
+  
+  <!-- Floating dots -->
+  <g opacity="0.4">
+    <circle cx="150" cy="150" r="1.5" fill="#00ff88">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="100" r="1" fill="#00ffff">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="500" r="2" fill="#ffffff">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="200" r="1.5" fill="#00ff88">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Website URL -->
+  <text x="50" y="610" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#666666">moutail.github.io/finger-beat-demo</text>
+  
+  <!-- Social proof -->
+  <text x="1150" y="610" text-anchor="end" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#00ff88">Created by VOID Studio</text>
+</svg>
