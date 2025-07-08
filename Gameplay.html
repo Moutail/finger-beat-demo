@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.game-demo {
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(135deg, #ff006e, #8b00ff);
+    position: relative;
+    margin: 50px auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.target-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+}
+
+.target-circle {
+    width: 100%;
+    height: 100%;
+    border: 4px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    animation: targetPulse 2s infinite;
+}
+
+.target-number {
+    font-size: 72px;
+    color: white;
+    font-weight: bold;
+    animation: numberChange 3s infinite;
+}
+
+.score-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.score-value {
+    animation: scoreIncrease 5s infinite;
+}
+
+.controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    border-radius: 15px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.control-btn.active {
+    background: rgba(0,255,136,0.8);
+    animation: btnPress 0.3s ease;
+}
+
+/* Animations */
+@keyframes targetPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes numberChange {
+    0% { content: "1"; }
+    20% { content: "2"; }
+    40% { content: "3"; }
+    60% { content: "4"; }
+    80% { content: "5"; }
+    100% { content: "1"; }
+}
+
+@keyframes scoreIncrease {
+    0% { counter-reset: score 0; }
+    100% { counter-reset: score 9999; }
+}
+
+.score-value::after {
+    content: counter(score);
+    animation: scoreCount 5s infinite;
+}
+
+@keyframes scoreCount {
+    0% { content: "0"; }
+    20% { content: "1,250"; }
+    40% { content: "2,890"; }
+    60% { content: "4,567"; }
+    80% { content: "7,234"; }
+    100% { content: "9,999"; }
+}
+
+@keyframes btnPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); background: rgba(0,255,136,1); }
+    100% { transform: scale(1); }
+}
+
+/* Theme changes */
+.game-demo {
+    animation: themeChange 15s infinite;
+}
+
+@keyframes themeChange {
+    0%, 20% { 
+        background: linear-gradient(135deg, #ff006e, #8b00ff);
+    }
+    25%, 45% { 
+        background: linear-gradient(135deg, #00ffff, #ff00ff);
+    }
+    50%, 70% { 
+        background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    }
+    75%, 95% { 
+        background: linear-gradient(135deg, #000000, #00ff88);
+    }
+}
+
+/* Particles effect */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ff88;
+    border-radius: 50%;
+    animation: particleFloat 3s infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(-80px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0);
+    }
+}
+
+/* Logo overlay */
+.void-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #00ff88;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+<div class="game-demo">
+    <div class="void-logo">VOID STUDIO</div>
+    
+    <div class="score-display">
+        SCORE: <span class="score-value"></span>
+    </div>
+    
+    <div class="target-area">
+        <div class="target-circle">
+            <div class="target-number" id="targetNum">3</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <div class="control-btn" id="btn1">1</div>
+        <div class="control-btn" id="btn2">2</div>
+        <div class="control-btn" id="btn3">3</div>
+        <div class="control-btn" id="btn4">4</div>
+        <div class="control-btn" id="btn5">5</div>
+    </div>
+    
+    <!-- Particles -->
+    <div class="particle" style="left: 100px; top: 300px; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 200px; top: 250px; animation-delay: 0.5s;"></div>
+    <div class="particle" style="left: 300px; top: 320px; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 400px; top: 280px; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 500px; top: 310px; animation-delay: 2s;"></div>
+</div>
+
+<script>
+// Animation du changement de numéros
+const numbers = [1, 2, 3, 4, 5];
+let currentIndex = 2; // Start with 3
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % numbers.length;
+    document.getElementById('targetNum').textContent = numbers[currentIndex];
+    
+    // Simuler appui de bouton
+    const btnId = `btn${numbers[currentIndex]}`;
+    const btn = document.getElementById(btnId);
+    btn.classList.add('active');
+    setTimeout(() => btn.classList.remove('active'), 300);
+}, 2000);
+</script>
+</body>
+</html>
