@@ -3,51 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Try Finger Beat Ultimate - Professional HTML5 rhythm game template with procedural audio generation. Created by VOID Studio. Save 6 months of development time!">
-    <meta name="keywords" content="rhythm game template, HTML5 game, procedural audio, PWA game, mobile game template, VOID Studio, game development, commercial license">
+    <meta name="description" content="Try Finger Beat Ultimate - Professional HTML5 rhythm game template with procedural audio generation. Created by VOID Studio.">
+    <meta name="keywords" content="rhythm game, HTML5 game, template, demo, VOID Studio, procedural audio">
     <meta name="author" content="CHAOUSSI Cherif - VOID Studio">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://moutail.github.io/finger-beat-demo/">
-    <meta property="og:title" content="Finger Beat Ultimate - Professional Rhythm Game Template | VOID Studio">
-    <meta property="og:description" content="Revolutionary HTML5 rhythm game template with procedural audio generation. No licensing fees, PWA ready, mobile-first design. Used by 100+ developers worldwide.">
+    <meta property="og:title" content="Finger Beat Ultimate - Demo | VOID Studio">
+    <meta property="og:description" content="Professional HTML5 rhythm game template with procedural audio generation. Try the demo now!">
     <meta property="og:image" content="https://moutail.github.io/finger-beat-demo/assets/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://moutail.github.io/finger-beat-demo/">
-    <meta property="twitter:title" content="Finger Beat Ultimate - Professional Rhythm Game Template">
-    <meta property="twitter:description" content="Revolutionary HTML5 rhythm game template with procedural audio generation. Save 6 months of development time!">
+    <meta property="twitter:title" content="Finger Beat Ultimate - Demo | VOID Studio">
+    <meta property="twitter:description" content="Professional HTML5 rhythm game template with procedural audio generation. Try the demo now!">
     <meta property="twitter:image" content="https://moutail.github.io/finger-beat-demo/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <title>Finger Beat Ultimate - Professional Rhythm Game Template | VOID Studio</title>
+    <title>Finger Beat Ultimate - Demo | VOID Studio</title>
     <link rel="icon" type="image/svg+xml" href="assets/void-logo.svg">
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
-    <!-- Facebook Pixel -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'YOUR_PIXEL_ID');
-        fbq('track', 'PageView');
-    </script>
     
     <style>
         * {
@@ -64,41 +41,7 @@
             overflow-x: hidden;
         }
 
-        /* Limited Time Offer Banner */
-        .limited-offer-banner {
-            background: linear-gradient(90deg, #ff006e, #8b00ff, #ff006e);
-            background-size: 200% 100%;
-            animation: bannerShimmer 3s ease-in-out infinite;
-            padding: 12px 20px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 14px;
-            position: relative;
-            z-index: 1001;
-        }
-
-        @keyframes bannerShimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .offer-text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .countdown-timer {
-            background: rgba(0,0,0,0.3);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-family: monospace;
-            font-size: 13px;
-        }
-
-        /* Header */
+        /* Header avec logo VOID */
         .header {
             position: fixed;
             top: 0;
@@ -109,12 +52,6 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 255, 136, 0.2);
             padding: 15px 20px;
-            margin-top: 44px; /* Space for banner */
-            transition: margin-top 0.3s ease;
-        }
-
-        .header.banner-hidden {
-            margin-top: 0;
         }
 
         .header-content {
@@ -192,7 +129,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 150px 20px 50px;
+            padding: 100px 20px 50px;
             position: relative;
             overflow: hidden;
         }
@@ -272,26 +209,6 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .btn-primary {
@@ -316,31 +233,6 @@
             border-color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Social Proof Stats */
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            opacity: 0.8;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: 900;
-            color: #00ff88;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #888;
-        }
-
         /* Features Grid */
         .features {
             padding: 80px 20px;
@@ -360,7 +252,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
         }
 
         .feature-card {
@@ -371,13 +262,6 @@
             text-align: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .feature-card:hover {
@@ -407,102 +291,12 @@
             line-height: 1.6;
         }
 
-        /* Testimonials Section */
-        .testimonials {
+        /* Demo Section */
+        .demo-section {
             padding: 80px 20px;
             background: rgba(0, 255, 136, 0.02);
             border-top: 1px solid rgba(0, 255, 136, 0.1);
             border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-        }
-
-        .testimonials-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonials-title {
-            font-size: 36px;
-            font-weight: 900;
-            margin-bottom: 50px;
-            color: #ffffff;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .testimonial-text {
-            font-size: 16px;
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #cccccc;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #00ff88, #00ffff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            color: #000;
-        }
-
-        .author-info {
-            text-align: left;
-        }
-
-        .author-name {
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-
-        .author-title {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .testimonials-footer {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #00ff88;
-            font-weight: 600;
-        }
-
-        /* Demo Section */
-        .demo-section {
-            padding: 80px 20px;
         }
 
         .demo-content {
@@ -534,12 +328,6 @@
             border: 2px solid rgba(0, 255, 136, 0.2);
         }
 
-        .demo-video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .demo-placeholder {
             width: 100%;
             height: 500px;
@@ -557,108 +345,10 @@
             color: #00ff88;
         }
 
-        .demo-features {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .demo-feature {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .demo-feature-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #00ff88;
-        }
-
-        .demo-feature-desc {
-            font-size: 14px;
-            color: #888;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .faq-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 900;
-            margin-bottom: 50px;
-            color: #ffffff;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            color: #ffffff;
-            background: transparent;
-            border: none;
-            width: 100%;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(0, 255, 136, 0.1);
-        }
-
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item[open] .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 25px 25px;
-            color: #cccccc;
-            line-height: 1.6;
-        }
-
-        details {
-            border: none;
-        }
-
-        details summary {
-            list-style: none;
-        }
-
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-
         /* CTA Section */
         .cta-section {
             padding: 80px 20px;
             text-align: center;
-            background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
         }
 
         .cta-content {
@@ -679,75 +369,16 @@
             margin-bottom: 40px;
         }
 
-        .pricing-comparison {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .price-old {
-            font-size: 24px;
-            color: #888;
-            text-decoration: line-through;
-        }
-
-        .price-new {
+        .cta-price {
             font-size: 48px;
             font-weight: 900;
             color: #00ff88;
-        }
-
-        .price-save {
-            background: linear-gradient(45deg, #ff006e, #8b00ff);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-left: 10px;
+            margin-bottom: 10px;
         }
 
         .cta-price-note {
             color: #888;
             margin-bottom: 30px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .guarantee-box {
-            margin-top: 40px;
-            padding: 25px;
-            background: rgba(0, 255, 136, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-        }
-
-        .guarantee-title {
-            color: #00ff88;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .included-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            text-align: left;
-            color: #ccc;
-        }
-
-        .included-features div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         /* Footer */
@@ -794,76 +425,6 @@
             font-weight: 600;
         }
 
-        /* Exit Intent Popup */
-        .exit-intent-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            backdrop-filter: blur(10px);
-        }
-
-        .popup-content {
-            background: linear-gradient(135deg, #111111, #222222);
-            border: 2px solid #00ff88;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            max-width: 500px;
-            margin: 20px;
-            position: relative;
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #888;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .popup-title {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #00ff88;
-        }
-
-        .popup-subtitle {
-            color: #ccc;
-            margin-bottom: 25px;
-            font-size: 16px;
-        }
-
-        .popup-offer {
-            background: rgba(255, 0, 110, 0.1);
-            border: 1px solid rgba(255, 0, 110, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .popup-offer-text {
-            font-size: 24px;
-            font-weight: 900;
-            color: #ff006e;
-            margin-bottom: 5px;
-        }
-
-        .popup-offer-note {
-            color: #888;
-            font-size: 12px;
-        }
-
         /* Floating particles */
         .particle {
             position: absolute;
@@ -884,20 +445,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .limited-offer-banner {
-                padding: 8px 15px;
-                font-size: 12px;
-            }
-
-            .offer-text {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .header {
-                margin-top: 75px;
-            }
-
             .header-content {
                 flex-direction: column;
                 gap: 15px;
@@ -905,10 +452,6 @@
 
             .header-links {
                 gap: 10px;
-            }
-
-            .hero {
-                padding: 120px 20px 50px;
             }
 
             .hero-buttons {
@@ -920,55 +463,17 @@
                 width: 250px;
             }
 
-            .hero-stats {
-                gap: 20px;
-            }
-
-            .features-grid, .testimonials-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
             .demo-frame {
                 margin: 0 10px;
             }
-
-            .demo-features {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .pricing-comparison {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .included-features {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .popup-content {
-                margin: 10px;
-                padding: 30px 20px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Limited Time Offer Banner -->
-    <div class="limited-offer-banner" id="offerBanner">
-        <div class="offer-text">
-            <span>🔥 Early Bird Special: Save $100 on Finger Beat Ultimate</span>
-            <span class="countdown-timer" id="countdown">48:00:00</span>
-            <span>⚡ Limited Time Only!</span>
-        </div>
-    </div>
-
     <!-- Particules flottantes -->
     <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
     <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
@@ -981,7 +486,7 @@
     <div class="particle" style="left: 90%; animation-delay: 4s;"></div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="header-content">
             <div class="logo-section">
                 <svg class="void-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -1004,9 +509,8 @@
             <nav class="header-links">
                 <a href="#demo" class="header-link">Demo</a>
                 <a href="#features" class="header-link">Features</a>
-                <a href="#testimonials" class="header-link">Reviews</a>
                 <a href="https://moutail.github.io/mon-portfolio/" class="header-link" target="_blank">Portfolio</a>
-                <a href="mailto:bigboros6@gmail.com" class="header-link primary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Header Buy'});">Get Template</a>
+                <a href="mailto:bigboros6@gmail.com" class="header-link primary">Get Template</a>
             </nav>
         </div>
     </header>
@@ -1014,35 +518,31 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🎮 #1 Professional Rhythm Game Template</div>
+            <div class="hero-badge">🎮 Professional Game Template</div>
             <h1 class="hero-title">Finger Beat Ultimate</h1>
-            <p class="hero-subtitle">Revolutionary HTML5 Rhythm Game Template with Procedural Audio Generation</p>
+            <p class="hero-subtitle">HTML5 Rhythm Game Template with Procedural Audio Generation</p>
             <div class="hero-buttons">
-                <a href="#demo" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Hero Demo'});">🎮 Try Live Demo</a>
-                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Purchase Inquiry" class="btn btn-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Hero Buy'});">💰 Buy Template $199</a>
+                <a href="#demo" class="btn btn-primary">🎮 Try Demo</a>
+                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Purchase Inquiry" class="btn btn-secondary">💰 Buy Template</a>
             </div>
             
-            <!-- Social Proof Stats -->
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-value">100+</div>
-                    <div class="stat-label">Developers Worldwide</div>
+            <!-- Stats -->
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; opacity: 0.8;">
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: #00ff88;">2000+</div>
+                    <div style="font-size: 12px; color: #888;">Lines of Code</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">2000+</div>
-                    <div class="stat-label">Lines of Code</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: #00ff88;">6</div>
+                    <div style="font-size: 12px; color: #888;">Themes Included</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">6</div>
-                    <div class="stat-label">Themes Included</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: #00ff88;">60</div>
+                    <div style="font-size: 12px; color: #888;">FPS Performance</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">60</div>
-                    <div class="stat-label">FPS Performance</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">PWA</div>
-                    <div class="stat-label">Ready</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: 900; color: #00ff88;">PWA</div>
+                    <div style="font-size: 12px; color: #888;">Ready</div>
                 </div>
             </div>
         </div>
@@ -1050,98 +550,42 @@
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="features-title">Why 100+ Developers Choose Finger Beat Ultimate</h2>
+        <h2 class="features-title">Why Developers Choose Finger Beat Ultimate</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🎵</div>
-                <h3 class="feature-title">Procedural Audio Revolution</h3>
-                <p class="feature-desc">Generate unlimited unique music tracks in real-time. No licensing fees, no copyright issues, infinite creative possibilities. Save $1000s on music licensing!</p>
+                <h3 class="feature-title">Procedural Audio</h3>
+                <p class="feature-desc">Generate unlimited unique music tracks in real-time. No licensing fees, no copyright issues, infinite possibilities.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
                 <h3 class="feature-title">Mobile-First PWA</h3>
-                <p class="feature-desc">Perfect touch controls, offline gameplay, and installable as native app on any device. iOS and Android ready with one codebase.</p>
+                <p class="feature-desc">Perfect touch controls, offline gameplay, and installable as native app on any device. iOS and Android ready.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3 class="feature-title">6 Stunning Themes</h3>
-                <p class="feature-desc">Viral, Hype, Chill, Neon, Sunset, and custom VOID theme. Easy white-label customization for your brand in minutes.</p>
+                <p class="feature-desc">Viral, Hype, Chill, Neon, Sunset, and custom VOID theme. Easy customization for your brand.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3 class="feature-title">60 FPS Performance</h3>
-                <p class="feature-desc">Optimized JavaScript and CSS for smooth gameplay. Professional code quality with comprehensive documentation and 1-year support.</p>
+                <p class="feature-desc">Optimized JavaScript and CSS for smooth gameplay. Professional code quality with comprehensive documentation.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🔧</div>
-                <h3 class="feature-title">6 Months of Work in 1 Day</h3>
-                <p class="feature-desc">Clean, modular code structure. Change branding, colors, and features with simple configuration files. Deploy to production instantly.</p>
+                <h3 class="feature-title">Easy Customization</h3>
+                <p class="feature-desc">Clean, modular code structure. Change branding, colors, and features with simple configuration files.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">💰</div>
-                <h3 class="feature-title">Commercial License Included</h3>
-                <p class="feature-desc">Full commercial rights included. Perfect for client projects, app stores, or white-label licensing. Start earning immediately!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="testimonials-content">
-            <h2 class="testimonials-title">What Developers Are Saying</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-text">"Finger Beat Ultimate saved us 3 months of development time. The procedural audio generation is absolutely game-changing! Our clients love the unlimited music possibilities."</div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <div class="author-name">Sarah Martinez</div>
-                            <div class="author-title">Lead Developer, GameCraft Studios</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-text">"Best investment we made this year. Generated $15K in our first month selling white-label versions to clients. The code quality is exceptional and support is top-notch."</div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MC</div>
-                        <div class="author-info">
-                            <div class="author-name">Mike Chen</div>
-                            <div class="author-title">Founder, Digital Wave Agency</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-text">"Perfect for our music therapy program. Patients love the customizable difficulty and engaging gameplay. The PWA feature means it works on all our tablets seamlessly."</div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">EJ</div>
-                        <div class="author-info">
-                            <div class="author-name">Dr. Emily Johnson</div>
-                            <div class="author-title">Music Therapist, Healing Sounds Clinic</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonials-footer">
-                <div class="trust-badge">
-                    <span>⭐⭐⭐⭐⭐</span>
-                    <span>4.9/5 Average Rating</span>
-                </div>
-                <div class="trust-badge">
-                    <span>🛡️</span>
-                    <span>30-Day Money-Back Guarantee</span>
-                </div>
-                <div class="trust-badge">
-                    <span>🏆</span>
-                    <span>Used by 100+ Developers</span>
-                </div>
+                <h3 class="feature-title">Commercial License</h3>
+                <p class="feature-desc">Full commercial rights included. Perfect for client projects, app stores, or white-label licensing.</p>
             </div>
         </div>
     </section>
@@ -1149,120 +593,31 @@
     <!-- Demo Section -->
     <section class="demo-section" id="demo">
         <div class="demo-content">
-            <h2 class="demo-title">Experience the Game Live</h2>
-            <p class="demo-subtitle">Try the full interactive demo with all features unlocked - no download required!</p>
+            <h2 class="demo-title">Experience the Game</h2>
+            <p class="demo-subtitle">Try the full interactive demo with all features unlocked</p>
             
             <div class="demo-frame">
-                <!-- Option 1: Video Demo -->
-                <!-- <video class="demo-video" autoplay muted loop>
-                    <source src="assets/finger-beat-demo.mp4" type="video/mp4">
-                </video> -->
-                
-                <!-- Option 2: Interactive Demo Link -->
                 <div class="demo-placeholder">
                     <div class="demo-placeholder-icon">🎮</div>
-                    <h3>Full Interactive Demo</h3>
-                    <p>Experience all features, themes, and gameplay mechanics</p>
-                    <a href="game.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;" onclick="gtag('event', 'click', {'event_category': 'Demo', 'event_label': 'Launch Game'});">🚀 Launch Demo Now</a>
+                    <h3>Interactive Demo</h3>
+                    <p>Click below to launch the full game demo</p>
+                    <a href="game.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">🚀 Launch Demo</a>
                 </div>
             </div>
             
-            <div class="demo-features">
-                <div class="demo-feature">
-                    <div class="demo-feature-title">✅ No Download</div>
-                    <div class="demo-feature-desc">Play instantly in browser</div>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 20px; font-weight: 700; color: #00ff88;">✅ No Download</div>
+                    <div style="font-size: 14px; color: #888;">Play instantly in browser</div>
                 </div>
-                <div class="demo-feature">
-                    <div class="demo-feature-title">✅ Full Features</div>
-                    <div class="demo-feature-desc">All gameplay mechanics included</div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 20px; font-weight: 700; color: #00ff88;">✅ Full Features</div>
+                    <div style="font-size: 14px; color: #888;">All gameplay mechanics included</div>
                 </div>
-                <div class="demo-feature">
-                    <div class="demo-feature-title">✅ Mobile Ready</div>
-                    <div class="demo-feature-desc">Perfect on touch devices</div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 20px; font-weight: 700; color: #00ff88;">✅ Mobile Ready</div>
+                    <div style="font-size: 14px; color: #888;">Works perfectly on touch devices</div>
                 </div>
-                <div class="demo-feature">
-                    <div class="demo-feature-title">✅ 6 Themes</div>
-                    <div class="demo-feature-desc">Try all visual styles</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="faq-content">
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        What exactly is included in the $199 price?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        You get the complete source code (2000+ lines), 6 stunning themes, PWA configuration files, comprehensive documentation (20+ pages), 30-day email support, commercial license, free updates for 1 year, and our exclusive monetization guide. Everything you need to launch your rhythm game!
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        How is this different from other game templates?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        Finger Beat Ultimate is the only template with procedural audio generation - meaning you can create unlimited unique music without any licensing fees. Plus, it's built mobile-first with PWA technology, ensuring perfect performance on all devices and offline capability.
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        Can I use this for commercial projects?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        Absolutely! The commercial license allows unlimited use for client projects, selling on app stores, white-label licensing, or any commercial purpose. Many agencies are already using it to generate $5K-$50K+ monthly revenue.
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        What technical skills do I need?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        Basic HTML/CSS/JavaScript knowledge is helpful, but not required for simple customizations. The template includes detailed documentation and step-by-step guides for branding, deployment, and monetization. Plus, you get 30 days of email support!
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        How long does setup and customization take?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        Basic branding and deployment can be done in 1-2 hours. Advanced customizations take 1-2 days max. Compare this to 6+ months of building from scratch! Our configuration system makes changes simple and fast.
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary class="faq-question">
-                        Is there a money-back guarantee?
-                        <span class="faq-icon">+</span>
-                    </summary>
-                    <div class="faq-answer">
-                        Yes! We offer a 30-day money-back guarantee. If Finger Beat Ultimate doesn't meet your expectations, just email us within 30 days for a full refund. We're confident you'll love it!
-                    </div>
-                </details>
             </div>
         </div>
     </section>
@@ -1270,35 +625,29 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2 class="cta-title">Ready to Build Your Rhythm Game Empire?</h2>
-            <p class="cta-subtitle">Join 100+ developers who are already earning with Finger Beat Ultimate</p>
+            <h2 class="cta-title">Ready to Build Your Rhythm Game?</h2>
+            <p class="cta-subtitle">Get the complete template with source code, documentation, and commercial license</p>
             
-            <div class="pricing-comparison">
-                <span class="price-old">$299</span>
-                <span class="price-new">$199</span>
-                <span class="price-save">Save $100!</span>
-            </div>
-            <p class="cta-price-note">Early Bird Special • Limited Time • Commercial License Included</p>
+            <div class="cta-price">$299</div>
+            <p class="cta-price-note">One-time purchase • Lifetime updates • Commercial license</p>
             
-            <div class="cta-buttons">
-                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Purchase" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Main Purchase'});">💳 Get Template Now - $199</a>
-                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Questions" class="btn btn-secondary" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Questions'});">❓ Ask Questions First</a>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Purchase" class="btn btn-primary">💳 Purchase Template</a>
+                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Questions" class="btn btn-secondary">❓ Ask Questions</a>
             </div>
             
-            <!-- Guarantee Box -->
-            <div class="guarantee-box">
-                <h4 class="guarantee-title">🛡️ What You Get With Your Purchase:</h4>
-                <div class="included-features">
-                    <div>✅ Complete source code (2000+ lines)</div>
-                    <div>✅ 6 visual themes + VOID signature</div>
-                    <div>✅ PWA configuration files</div>
-                    <div>✅ Comprehensive documentation (20+ pages)</div>
-                    <div>✅ 30-day email support</div>
-                    <div>✅ Commercial license (unlimited use)</div>
-                    <div>✅ Free updates for 1 year</div>
-                    <div>✅ Monetization strategy guide</div>
-                    <div>✅ Deployment tutorials</div>
-                    <div>✅ 30-day money-back guarantee</div>
+            <!-- Guarantee -->
+            <div style="margin-top: 40px; padding: 20px; background: rgba(0, 255, 136, 0.05); border-radius: 15px; border: 1px solid rgba(0, 255, 136, 0.2);">
+                <h4 style="color: #00ff88; margin-bottom: 10px;">✅ What's Included:</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left; color: #ccc;">
+                    <div>• Complete source code (2000+ lines)</div>
+                    <div>• 6 visual themes + VOID theme</div>
+                    <div>• PWA configuration files</div>
+                    <div>• Comprehensive documentation</div>
+                    <div>• 30-day email support</div>
+                    <div>• Commercial license</div>
+                    <div>• Free updates for 1 year</div>
+                    <div>• Monetization guide</div>
                 </div>
             </div>
         </div>
@@ -1312,78 +661,21 @@
                 <a href="mailto:bigboros6@gmail.com" class="footer-link">Support</a>
                 <a href="mailto:chaoussicherif@gmail.com" class="footer-link">Business</a>
                 <a href="https://github.com/moutail" class="footer-link" target="_blank">GitHub</a>
-                <a href="#faq" class="footer-link">FAQ</a>
             </div>
             <div class="footer-copyright">
                 <p>© 2025 <span class="void-signature">VOID Studio</span> | Created by CHAOUSSI Cherif</p>
                 <p style="margin-top: 5px; font-size: 11px;">Professional game development templates and interactive experiences</p>
-                <p style="margin-top: 10px; font-size: 10px; opacity: 0.6;">🚀 Empowering developers worldwide to create amazing games</p>
             </div>
         </div>
     </footer>
 
-    <!-- Exit Intent Popup -->
-    <div class="exit-intent-popup" id="exitPopup">
-        <div class="popup-content">
-            <button class="popup-close" id="popupClose">×</button>
-            <h3 class="popup-title">Wait! Don't Miss Out!</h3>
-            <p class="popup-subtitle">Get an exclusive 20% discount on Finger Beat Ultimate</p>
-            
-            <div class="popup-offer">
-                <div class="popup-offer-text">Special Price: $159</div>
-                <div class="popup-offer-note">Limited time offer for serious developers</div>
-            </div>
-            
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:bigboros6@gmail.com?subject=Finger Beat Ultimate - Special Offer" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'Exit Intent', 'event_label': 'Special Offer'});">Get Special Offer</a>
-                <button class="btn btn-secondary" id="popupNoThanks">No Thanks</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
+    <!-- Analytics (à ajouter plus tard) -->
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const targetTime = now + (48 * 60 * 60 * 1000); // 48 hours from now
-            
-            setInterval(function() {
-                const currentTime = new Date().getTime();
-                const distance = targetTime - currentTime;
-                
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                document.getElementById("countdown").innerHTML = 
-                    hours.toString().padStart(2, '0') + ":" + 
-                    minutes.toString().padStart(2, '0') + ":" + 
-                    seconds.toString().padStart(2, '0');
-                
-                if (distance < 0) {
-                    document.getElementById("countdown").innerHTML = "EXPIRED";
-                }
-            }, 1000);
-        }
-        
-        updateCountdown();
-
-        // Hide offer banner after scroll
-        let bannerHidden = false;
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100 && !bannerHidden) {
-                document.getElementById('offerBanner').style.transform = 'translateY(-100%)';
-                document.getElementById('header').classList.add('banner-hidden');
-                bannerHidden = true;
-            }
-        });
-
         // Tracking des clics sur les boutons
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 console.log('Button clicked:', this.textContent.trim());
-                // Analytics tracking is handled by onclick attributes
+                // Ici vous pourrez ajouter Google Analytics plus tard
             });
         });
 
@@ -1410,92 +702,18 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
         // Observer les cartes features
         document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
-        });
-
-        // Exit Intent Detection
-        let exitIntentShown = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !exitIntentShown) {
-                showExitIntentPopup();
-                exitIntentShown = true;
-            }
-        });
-
-        function showExitIntentPopup() {
-            document.getElementById('exitPopup').style.display = 'flex';
-            gtag('event', 'exit_intent_shown', {'event_category': 'Popup'});
-        }
-
-        function hideExitIntentPopup() {
-            document.getElementById('exitPopup').style.display = 'none';
-        }
-
-        // Close popup handlers
-        document.getElementById('popupClose').addEventListener('click', hideExitIntentPopup);
-        document.getElementById('popupNoThanks').addEventListener('click', function() {
-            hideExitIntentPopup();
-            gtag('event', 'exit_intent_declined', {'event_category': 'Popup'});
-        });
-
-        // Close popup when clicking outside
-        document.getElementById('exitPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                hideExitIntentPopup();
-            }
-        });
-
-        // FAQ Accordion Enhancement
-        document.querySelectorAll('details').forEach(detail => {
-            detail.addEventListener('toggle', function() {
-                if (this.open) {
-                    gtag('event', 'faq_opened', {
-                        'event_category': 'FAQ',
-                        'event_label': this.querySelector('summary').textContent.trim()
-                    });
-                }
-            });
-        });
-
-        // Page Load Performance Tracking
-        window.addEventListener('load', function() {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            gtag('event', 'page_load_time', {
-                'event_category': 'Performance',
-                'value': Math.round(loadTime)
-            });
-        });
-
-        // Scroll Depth Tracking
-        let maxScroll = 0;
-        window.addEventListener('scroll', function() {
-            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-            if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-                maxScroll = scrollPercent;
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'Engagement',
-                    'value': scrollPercent
-                });
-            }
-        });
-
-        // Demo Interest Tracking
-        document.getElementById('demo').addEventListener('mouseenter', function() {
-            gtag('event', 'demo_section_viewed', {'event_category': 'Interest'});
-        });
-
-        // Price Click Tracking
-        document.querySelectorAll('.price-new').forEach(price => {
-            price.addEventListener('click', function() {
-                gtag('event', 'price_clicked', {'event_category': 'Interest'});
-            });
         });
     </script>
 </body>
